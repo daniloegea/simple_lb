@@ -157,6 +157,8 @@ int add_new_backend(char *backend) {
 
 	ret = regexec(&reg, backend, 0, NULL, 0);
 
+	regfree(&reg);
+
 	if (ret != 0) {
 		printf("%s doesn\'t match the format xxx.xxx.xxx.xxx:port\n", backend);
 		exit(1);
